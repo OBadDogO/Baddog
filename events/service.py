@@ -59,9 +59,9 @@ def service_category_event(event):
                 ImageCarouselColumn(
                     image_url = 'https://icook.tw/recipes/428846',
                     action = PostbackAction(
-                        label = '按摩調理',
+                        label = '臉部護理',
                         display_text = "想了解按摩" ,
-                        data = 'action=service&category=按摩調理'
+                        data = 'action=service&category=臉部護理'
                     )
                 )        
             ]
