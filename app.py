@@ -4,8 +4,17 @@ from events.basic import *
 from events.service import*
 from line_bot_api import *
 
-app = Flask(__name__)
+from extensions import db, migrate
+from models.user import User
+import os
 
+app = Flask(__name__)
+app.config.from_object(os.environ.get('APP_SETTINGS','config.DevConfig'))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://zx2203300zx:MXCp7IA8FF60LFIpc4vTM13QTs7BtfFo@dpg-cjkcdqb37aks738v0kk0-a.singapore-postgres.render.com/ex2'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.app = app
+db.init_app(app)
+migrate.init_app(app, db)
 
 @app.route("/callback", methods=['POST'])
 def callback():

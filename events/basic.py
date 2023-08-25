@@ -1,4 +1,4 @@
-from line_bot_api import *
+from line_bot_api import*
 
 
 def about_us_event(event):
